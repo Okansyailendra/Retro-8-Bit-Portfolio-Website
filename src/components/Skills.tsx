@@ -8,12 +8,11 @@ const SKILL_CATEGORIES = [
     color: '#39ff14',
     icon: '⚔',
     skills: [
-      { name: 'React',       icon: '⚛',  level: 92 },
-      { name: 'TypeScript',  icon: 'TS', level: 88 },
-      { name: 'Next.js',     icon: 'N',  level: 82 },
-      { name: 'HTML/CSS',    icon: '<>', level: 96 },
-      { name: 'Tailwind',    icon: '◈',  level: 90 },
-      { name: 'Framer M.',   icon: '◎',  level: 76 },
+      { name: 'React',       icon: '/material-icon-theme--react.svg',  level: 92 },
+      { name: 'TypeScript',  icon: '/devicon--typescript.svg', level: 88 },
+      { name: 'JavaScript',  icon: '/skill-icons--javascript.svg',  level: 95 },
+      { name: 'HTML/CSS',    icon: '/skill-icons--html.svg', level: 96 },
+      { name: 'Tailwind',    icon: '/devicon--tailwindcss.svg',  level: 90 },
     ],
   },
   {
@@ -21,12 +20,11 @@ const SKILL_CATEGORIES = [
     color: '#ffd700',
     icon: '🏺',
     skills: [
-      { name: 'Node.js',     icon: '⬡',  level: 78 },
-      { name: 'Python',      icon: '∾',  level: 72 },
-      { name: 'PostgreSQL',  icon: '♁',  level: 74 },
-      { name: 'REST APIs',   icon: '⇌',  level: 85 },
-      { name: 'GraphQL',     icon: '◈',  level: 68 },
-      { name: 'Supabase',    icon: '◉',  level: 80 },
+      { name: 'Node.js',     icon: '/material-icon-theme--nodejs.svg',  level: 78 },
+      { name: 'Python',      icon: '/material-icon-theme--python.svg',  level: 72 },
+      { name: 'PHP',         icon: '/material-icon-theme--php.svg',  level: 85 },
+      { name: 'Laravel',     icon: '/material-icon-theme--laravel.svg',  level: 80 },
+      { name: 'MySQL',       icon: '/logos--mysql.svg',  level: 74 },
     ],
   },
   {
@@ -34,12 +32,9 @@ const SKILL_CATEGORIES = [
     color: '#ff6ec7',
     icon: '⚗',
     skills: [
-      { name: 'Git',         icon: '⎇',  level: 92 },
-      { name: 'Docker',      icon: '◱',  level: 68 },
-      { name: 'Figma',       icon: '◫',  level: 78 },
-      { name: 'VS Code',     icon: '◈',  level: 98 },
-      { name: 'Vercel',      icon: '▲',  level: 84 },
-      { name: 'Linux',       icon: '◈',  level: 74 },
+      { name: 'Git/GitHub',  icon: '/garden--github-stroke-12.svg',  level: 92 },
+      { name: 'Figma',       icon: '/logos--figma.svg',  level: 78 },
+      { name: 'Vercel',      icon: '/akar-icons--vercel-fill.svg',  level: 84 },
     ],
   },
 ];
@@ -61,11 +56,17 @@ function SkillItem({ name, icon, level, color, delay }: {
     >
       <PixelBox color={`${color}60`} bg="#0a0a1a" className="p-2.5 hover:scale-[1.02] transition-transform">
         <div className="flex items-center gap-2 mb-2">
-          <div
-            className="w-7 h-7 flex items-center justify-center flex-shrink-0 font-pixel text-[8px]"
-            style={{ background: color, color: '#0f0f23', boxShadow: `2px 2px 0 0 ${color}66` }}
-          >
-            {icon.length > 2 ? icon.slice(0, 2) : icon}
+          <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
+            {icon.endsWith('.svg') || icon.startsWith('/') ? (
+              <img src={icon} alt={name} className="w-full h-full object-contain drop-shadow-md" />
+            ) : (
+              <div
+                className="w-full h-full flex items-center justify-center font-pixel text-[8px]"
+                style={{ background: color, color: '#0f0f23', boxShadow: `2px 2px 0 0 ${color}66` }}
+              >
+                {icon.length > 2 ? icon.slice(0, 2) : icon}
+              </div>
+            )}
           </div>
           <span className="font-pixel text-[7px] sm:text-[8px] text-gold flex-1 truncate">{name}</span>
           <span

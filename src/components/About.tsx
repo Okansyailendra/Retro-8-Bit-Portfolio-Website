@@ -39,46 +39,6 @@ function StatBar({ label, name, val, color, delay }: typeof STATS[0] & { delay: 
   );
 }
 
-function PixelCharacter() {
-  return (
-    <svg viewBox="0 0 16 26" width={96} height={156} style={{ imageRendering: 'pixelated' }}>
-      {/* Hair */}
-      <rect x="3" y="0" width="10" height="3" fill="#8B4513" />
-      <rect x="2" y="1" width="1" height="2" fill="#8B4513" />
-      <rect x="13" y="1" width="1" height="2" fill="#8B4513" />
-      {/* Head */}
-      <rect x="3" y="3" width="10" height="7" fill="#F4C496" />
-      {/* Eyes */}
-      <rect x="5" y="5" width="2" height="2" fill="#1a1a2e" />
-      <rect x="9" y="5" width="2" height="2" fill="#1a1a2e" />
-      <rect x="5" y="5" width="1" height="1" fill="#3355ff" />
-      <rect x="9" y="5" width="1" height="1" fill="#3355ff" />
-      {/* Mouth smile */}
-      <rect x="6" y="8" width="4" height="1" fill="#cc6666" />
-      <rect x="5" y="7" width="1" height="1" fill="#cc6666" />
-      <rect x="10" y="7" width="1" height="1" fill="#cc6666" />
-      {/* Neck */}
-      <rect x="6" y="10" width="4" height="2" fill="#F4C496" />
-      {/* Body */}
-      <rect x="2" y="12" width="12" height="8" fill="#ff6ec7" />
-      {/* Collar */}
-      <rect x="6" y="12" width="4" height="2" fill="#cc44aa" />
-      {/* Arms */}
-      <rect x="0" y="12" width="2" height="6" fill="#ff6ec7" />
-      <rect x="14" y="12" width="2" height="6" fill="#ff6ec7" />
-      {/* Hands */}
-      <rect x="0" y="18" width="2" height="2" fill="#F4C496" />
-      <rect x="14" y="18" width="2" height="2" fill="#F4C496" />
-      {/* Legs */}
-      <rect x="3" y="20" width="4" height="6" fill="#3344bb" />
-      <rect x="9" y="20" width="4" height="6" fill="#3344bb" />
-      {/* Shoes */}
-      <rect x="2" y="24" width="5" height="2" fill="#1a1a1a" />
-      <rect x="9" y="24" width="5" height="2" fill="#1a1a1a" />
-    </svg>
-  );
-}
-
 function HeartIcon({ filled, color }: { filled: boolean; color: string }) {
   return (
     <svg viewBox="0 0 10 9" width={18} height={18} style={{ imageRendering: 'pixelated' }}>
@@ -130,74 +90,79 @@ export default function About() {
           initial={{ opacity: 0, x: -40 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
+          className="h-full flex flex-col"
         >
-          <PixelBox color="#ff6ec7" glow className="p-5">
-            {/* Card header */}
-            <div className="font-pixel text-pink text-[9px] mb-4 glow-pink tracking-widest border-b-2 border-pink pb-2">
-              PLAYER CARD
-            </div>
-
-            <div className="flex gap-6 items-start mb-5">
-              {/* Sprite */}
-              <div className="flex-shrink-0 float">
-                <PixelBox color="#ffd700" bg="#0a0a1a" className="p-2">
-                  <PixelCharacter />
-                </PixelBox>
+          <PixelBox color="#ff6ec7" glow className="p-5 h-full flex flex-col justify-between">
+            <div>
+              {/* Card header */}
+              <div className="font-pixel text-pink text-[9px] mb-4 glow-pink tracking-widest border-b-2 border-pink pb-2">
+                PLAYER CARD
               </div>
 
-              {/* Info */}
-              <div className="font-vt text-lg sm:text-xl space-y-1.5 flex-1">
-                <div><span className="text-gold font-pixel text-[8px]">NAME</span><br />
-                  <span className="text-cyan text-xl">Your Name Here</span></div>
-                <div><span className="text-gold font-pixel text-[8px]">CLASS</span><br />
-                  <span className="text-pink text-xl">Full Stack Dev</span></div>
-                <div><span className="text-gold font-pixel text-[8px]">LEVEL</span><br />
-                  <span className="text-neon text-xl glow-neon">LVL 42 ★★★★</span></div>
-                <div><span className="text-gold font-pixel text-[8px]">ORIGIN</span><br />
-                  <span className="text-gold text-xl">Indonesia</span></div>
-              </div>
-            </div>
-
-            {/* HP row */}
-            <div className="mb-2">
-              <div className="flex justify-between font-pixel text-[7px] mb-1">
-                <span className="text-neon">HP</span>
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => <HeartIcon key={i} filled={i < 4} color="#39ff14" />)}
+              <div className="flex gap-6 items-start mb-5">
+                {/* Sprite */}
+                <div className="flex-shrink-0 float">
+                  <PixelBox color="#ffd700" bg="#0a0a1a" className="p-2">
+                    <img src="/foto.webp" alt="Profile" className="w-[180px] h-[240px] sm:w-[220px] sm:h-[293px] object-cover object-[center_15%]" />
+                  </PixelBox>
                 </div>
-                <span className="text-neon">850/1000</span>
-              </div>
-              <div className="h-3" style={{ background: '#0a0a1a', border: '2px solid #2a2a6e' }}>
-                <div className="h-full bg-neon" style={{ width: '85%', boxShadow: '0 0 8px #39ff14' }} />
+
+                {/* Info */}
+                <div className="font-vt text-lg sm:text-xl space-y-1.5 flex-1 mt-2">
+                  <div><span className="text-gold font-pixel text-[8px]">NAME</span><br />
+                    <span className="text-cyan text-xl">Okan Syailendra Wahyudi</span></div>
+                  <div><span className="text-gold font-pixel text-[8px]">CLASS</span><br />
+                    <span className="text-pink text-xl">Web Developer</span></div>
+                  <div><span className="text-gold font-pixel text-[8px]">LEVEL</span><br />
+                    <span className="text-neon text-xl glow-neon">LVL 15 ★★★★★</span></div>
+                  <div><span className="text-gold font-pixel text-[8px]">ORIGIN</span><br />
+                    <span className="text-gold text-xl">Indonesia</span></div>
+                </div>
               </div>
             </div>
 
-            {/* MP row */}
-            <div className="mb-4">
-              <div className="flex justify-between font-pixel text-[7px] mb-1">
-                <span className="text-cyan">MP</span>
-                <span className="text-cyan">420/600</span>
+            <div className="mt-auto pt-4">
+              {/* HP row */}
+              <div className="mb-2">
+                <div className="flex justify-between font-pixel text-[7px] mb-1">
+                  <span className="text-neon">HP</span>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => <HeartIcon key={i} filled={i < 4} color="#39ff14" />)}
+                  </div>
+                  <span className="text-neon">850/1000</span>
+                </div>
+                <div className="h-3" style={{ background: '#0a0a1a', border: '2px solid #2a2a6e' }}>
+                  <div className="h-full bg-neon" style={{ width: '85%', boxShadow: '0 0 8px #39ff14' }} />
+                </div>
               </div>
-              <div className="h-3" style={{ background: '#0a0a1a', border: '2px solid #2a2a6e' }}>
-                <div className="h-full bg-cyan" style={{ width: '70%', boxShadow: '0 0 8px #00e5ff' }} />
-              </div>
-            </div>
 
-            {/* EXP */}
-            <div ref={xpRef}>
-              <div className="flex justify-between font-pixel text-[7px] mb-1">
-                <span className="text-gold">EXP</span>
-                <span className="text-gold">7200/10000</span>
+              {/* MP row */}
+              <div className="mb-4">
+                <div className="flex justify-between font-pixel text-[7px] mb-1">
+                  <span className="text-cyan">MP</span>
+                  <span className="text-cyan">420/600</span>
+                </div>
+                <div className="h-3" style={{ background: '#0a0a1a', border: '2px solid #2a2a6e' }}>
+                  <div className="h-full bg-cyan" style={{ width: '70%', boxShadow: '0 0 8px #00e5ff' }} />
+                </div>
               </div>
-              <div className="h-3" style={{ background: '#0a0a1a', border: '2px solid #2a2a6e' }}>
-                <div
-                  className="h-full bg-gold"
-                  style={{
-                    width: xpInView ? `${xpPercent}%` : '0%',
-                    transition: xpInView ? 'width 1.5s 0.3s ease-out' : 'none',
-                    boxShadow: '0 0 8px #ffd700',
-                  }}
-                />
+
+              {/* EXP */}
+              <div ref={xpRef}>
+                <div className="flex justify-between font-pixel text-[7px] mb-1">
+                  <span className="text-gold">EXP</span>
+                  <span className="text-gold">7200/10000</span>
+                </div>
+                <div className="h-3" style={{ background: '#0a0a1a', border: '2px solid #2a2a6e' }}>
+                  <div
+                    className="h-full bg-gold"
+                    style={{
+                      width: xpInView ? `${xpPercent}%` : '0%',
+                      transition: xpInView ? 'width 1.5s 0.3s ease-out' : 'none',
+                      boxShadow: '0 0 8px #ffd700',
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </PixelBox>
