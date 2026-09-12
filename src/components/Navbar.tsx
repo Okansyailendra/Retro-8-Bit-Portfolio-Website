@@ -29,7 +29,7 @@ export default function Navbar({ activeSection, scrollToSection }: NavbarProps) 
           className="font-pixel text-gold text-[8px] sm:text-[10px] glow-gold hidden sm:block tracking-widest"
           style={{ cursor: 'none', background: 'none', border: 'none' }}
         >
-          &lt;PIXEL.DEV/&gt;
+          &lt;Kannz.Dev&gt;
         </button>
 
         {/* Nav items */}

@@ -66,8 +66,17 @@ export default function Home({ scrollToNext }: { scrollToNext: () => void }) {
     []
   );
 
-  const { display: nameText, done: nameDone } = useTypewriter('YOUR.NAME', 110, 800);
-  const { display: roleText } = useTypewriter('FULL STACK DEVELOPER', 60, 2200);
+  const { display: nameText, done: nameDone } = useTypewriter(' Okan Syailendra Wahyudi ', 110, 800);
+  const ROLES = ['Software Developer', 'Web Developer', 'UI UX Designer', 'Game Developer', 'Cyber Security Enthusiast'];
+  const [currentRole, setCurrentRole] = useState(ROLES[0]);
+  const { display: roleText } = useTypewriter(currentRole, 60, 1000);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRole(prev => ROLES[(ROLES.indexOf(prev) + 1) % ROLES.length]);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   const [showStart, setShowStart] = useState(false);
   useEffect(() => { const t = setTimeout(() => setShowStart(true), 3800); return () => clearTimeout(t); }, []);
@@ -151,7 +160,7 @@ export default function Home({ scrollToNext }: { scrollToNext: () => void }) {
           className="font-vt text-gold text-xl sm:text-2xl mb-10 mt-3"
           style={{ opacity: 0.55, letterSpacing: '0.05em' }}
         >
-          // Crafting legendary web experiences since 2019 //
+          Belajar dan berkembang karena teknologi tidak akan berhenti berkembang
         </p>
 
         {/* PRESS START */}

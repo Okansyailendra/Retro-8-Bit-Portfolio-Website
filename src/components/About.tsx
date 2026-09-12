@@ -185,7 +185,7 @@ export default function About() {
             <div className="mt-5 border-t-2 border-border pt-4">
               <div className="font-pixel text-cyan text-[8px] mb-3 glow-cyan">BACKSTORY:</div>
               <p className="font-vt text-gold text-lg leading-snug" style={{ opacity: 0.85 }}>
-                A passionate developer who discovered HTML at age 14 and never looked back.
+                A passionate developer who discovered HTML at age 19 and never looked back.
                 Now on a quest to build legendary web apps that users actually love.
                 Specializes in React spells, TypeScript enchantments, and pixel-perfect UIs.
               </p>

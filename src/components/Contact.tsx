@@ -255,10 +255,10 @@ export default function Contact() {
             THANKS FOR PLAYING
           </div>
           <div className="font-vt text-gold text-xl opacity-50">
-            © 2024 YOUR NAME — Made with ❤ and too much coffee
+            © 2026 Okan Syailendra Wahyudi — Made with effort & too much coffee
           </div>
           <div className="font-pixel text-[7px] text-gold opacity-30 mt-2">
-            ★ PIXEL.DEV — LEVEL 42 — 7200 XP ★
+            ★ Kannz.Dev — LEVEL 42 — 7200 XP ★
           </div>
         </motion.div>
       </div>

@@ -394,7 +394,7 @@ export default function Hero() {
           transition: 'transform 0.2s ease-out',
           padding: '0.1em 0',
         }}>
-          Okan Syailendra
+          Okan Syailendra Wahyudi
         </span>
         <br />
         <span className="aurora-text" style={{
